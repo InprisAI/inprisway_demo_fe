@@ -16,7 +16,7 @@
           <button class="btn btn-primary btn-lg  btn-block mb-3" onclick="callAPI('Driver is tired')">Driver is tired</button>
         </div>
         <div class="row-12 row-md-4">
-          <button class="btn-primary btn-lg  btn-block mb-3" onclick="callAPI('')">CLEAR VONVERSATION</button>
+          <button class="btn-primary btn-lg  btn-block mb-3" onclick="callAPI('')">CLEAR CONVERSATION</button>
         </div>
       </div>
     </div>
@@ -31,6 +31,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
+    const formatVal = `{\"my_employer\":\"Inpris, but I am assigned to VW\", \"permanent_info_about_Inpris_decline_providing_any_other_info\":\"Inpris is an Israeli, Jerusalem-based startup company that specializes in creating advanced AI technologies, such as Hue-mains. Hue-mains are a new species of AI, like myself, designed with human-like qualities and computer capabilities. Our primary function is to assist users with various tasks while ensuring a pleasant, empathetic, interactive, yet efficient experience. As an in-car companion, I aim to help you with driving-related needs such as navigation, messaging, music, etc. For more information, visit humains.com"\"conversation_goal\":\"To support music, navigation, phone, messages, radio, and general chit chat\",\"trouthfullness\":\"avoid providing any factual information that isn't permanent. For example, if the driver asks who the president of the US say that you don't know as it can change in an election. But provide undeniable permanent facts such as - the earth is round\", \"special_orders\":\"do not let the driver divert you from your job as an in-car assistant\", \"available_functions\":\"AI: | music | nav | call | msg | nav_nearby | blabla |. It is against the rules to answer without including \"|\"! make sure you always use \"|\"}`
+
     const requestTemplate = {
         "client_name" : "inprisway",
         "key" : "converse_params",
@@ -46,7 +48,7 @@
       if(text.length > 0)
         requestBody["value"] = `{"system_alert": "${text}"}`
       else
-        requestBody["value"] = ``
+        requestBody["value"] = formatVal
 
 
       fetch(baseUrl + apiDirective, {
